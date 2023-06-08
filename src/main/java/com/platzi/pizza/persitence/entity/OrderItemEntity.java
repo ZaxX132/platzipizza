@@ -1,5 +1,6 @@
 package com.platzi.pizza.persitence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class OrderItemEntity {
     @Column(nullable = false,columnDefinition = "DECIMAL(5,2)")
     private Double PRICE;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "id_order",referencedColumnName = "id_order",insertable = false,updatable = false)
     private OrderEntity order;
